@@ -95,12 +95,12 @@ Parallelizable: 1 can run any time after 0; 6 can run any time after 2.
 
 ## Compliance checklist (live from Phase 0 onward)
 
-- [ ] Free forever; no ads gating features, no premium tiers, no paywalled features, no donation interstitials.
-- [ ] Public GitHub repo (Blizzard requires visible, unobfuscated application code).
-- [ ] Privacy policy page before any Blizzard API usage; updated when Battle.net login lands (Phase 5).
-- [ ] Footer on every page: "World of Warcraft® and Blizzard Entertainment® are trademarks or registered
+- [x] Free forever; no ads gating features, no premium tiers, no paywalled features, no donation interstitials.
+- [x] Public GitHub repo (Blizzard requires visible, unobfuscated application code). — github.com/shanebowe77/wow-tmog-planner
+- [x] Privacy policy page before any Blizzard API usage; updated when Battle.net login lands (Phase 5). — `/legal/privacy`, live before any API usage
+- [x] Footer on every page: "World of Warcraft® and Blizzard Entertainment® are trademarks or registered
       trademarks of Blizzard Entertainment, Inc. This site is a fan project and is not affiliated with or
-      endorsed by Blizzard Entertainment." + credits (wago.tools, Wowhead model viewer).
+      endorsed by Blizzard Entertainment." + credits (wago.tools, Wowhead model viewer). — `SiteFooter` in root layout; wording guarded by tests
 - [ ] 30-day TTL on all Blizzard-API-derived rows (`collected_appearances.fetched_at` + purge job).
 - [ ] Blizzard API batch usage stays far under 36,000 req/hr; app never proxies Blizzard in request path.
 - [ ] Vercel Hobby stays legitimate because the app is genuinely non-commercial.
@@ -120,6 +120,18 @@ at end of Phase 2 and 6; Supabase Pro is the expected first real cost.
 
 ## Decision log
 
+- **2026-07-05 — Phase 0 shipped.** Public repo at github.com/shanebowe77/wow-tmog-planner; Vercel
+  project `wow-tmog-planner` on Shane's personal account, GitHub-connected (push to `main`
+  auto-deploys), prod at https://wow-tmog-planner-eight.vercel.app. Versions: Next 16.2 (Turbopack),
+  Tailwind v4, shadcn/ui base-nova preset (Base UI primitives, not Radix — link-styled buttons use
+  `buttonVariants`, not `asChild`), Vitest 4. Landing + `/legal/privacy` + compliance footer live;
+  `/api/health` reports Supabase reachability.
+- **2026-07-05 — Supabase project deferred to Shane.** The "Shane Dev" Supabase org is on a paid plan,
+  so a new project costs **$10/mo** (research assumed free tier) — not auto-created. Options: accept
+  the $10/mo, or create a separate free-plan org (2 free projects) for this app. Everything is wired to
+  plug in: `supabase/` config + two migrations (empty init + `health()` RPC), client helpers, and
+  `.env.example`; `/api/health` returns `"unconfigured"` until env vars exist. Revisit the 500 MB
+  free-tier watch item (end of Phase 2) if the free-org route is taken.
 - **2026-07-05 — Stack locked** per research: Next.js App Router + TS + Tailwind + shadcn/ui on Vercel
   Hobby; Supabase (Postgres/pgvector/Auth); GitHub Actions for ingest; Claude API for AI. pnpm as package
   manager.

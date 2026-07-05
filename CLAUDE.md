@@ -10,7 +10,8 @@ brief you were asked to implement in [docs/phases/](docs/phases/). Data work als
 
 ## Phase tracker
 
-- [ ] Phase 0 — Scaffold & walking skeleton (`docs/phases/phase-0-scaffold.md`)
+- [x] Phase 0 — Scaffold & walking skeleton (`docs/phases/phase-0-scaffold.md`) — done 2026-07-05;
+      Supabase project creation pending Shane (see Decision log)
 - [ ] Phase 1 — 3D viewer spike, DECISION GATE (`docs/phases/phase-1-viewer-spike.md`)
 - [ ] Phase 2 — Ingestion pipeline (`docs/phases/phase-2-ingestion.md`)
 - [ ] Phase 3 — Catalog browser (`docs/phases/phase-3-catalog.md`)
@@ -61,4 +62,14 @@ browser verification — use them.
 
 ## Commands
 
-Filled in by Phase 0 (create-next-app etc.). Until then: this repo is docs-only.
+- `pnpm dev` — dev server at http://localhost:3000
+- `pnpm build` / `pnpm start` — production build / serve it locally
+- `pnpm lint` — ESLint
+- `pnpm test` — Vitest, single run (`pnpm exec vitest` to watch)
+- `supabase db push` — apply `supabase/migrations/` to the linked remote project
+  (one-time: `supabase link --project-ref <ref>`); the Supabase MCP `apply_migration` also works
+- Deploys: push to `main` → Vercel auto-deploys production. Manual: `vercel deploy --prod`.
+
+Infra: GitHub `shanebowe77/wow-tmog-planner` (public) · Vercel project `wow-tmog-planner`
+(personal account, prod at https://wow-tmog-planner-eight.vercel.app) · Supabase project: not yet
+created. Env vars documented in `.env.example` (local: `.env.local`, deploys: Vercel dashboard).
