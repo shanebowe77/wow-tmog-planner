@@ -126,12 +126,11 @@ at end of Phase 2 and 6; Supabase Pro is the expected first real cost.
   Tailwind v4, shadcn/ui base-nova preset (Base UI primitives, not Radix — link-styled buttons use
   `buttonVariants`, not `asChild`), Vitest 4. Landing + `/legal/privacy` + compliance footer live;
   `/api/health` reports Supabase reachability.
-- **2026-07-05 — Supabase project deferred to Shane.** The "Shane Dev" Supabase org is on a paid plan,
-  so a new project costs **$10/mo** (research assumed free tier) — not auto-created. Options: accept
-  the $10/mo, or create a separate free-plan org (2 free projects) for this app. Everything is wired to
-  plug in: `supabase/` config + two migrations (empty init + `health()` RPC), client helpers, and
-  `.env.example`; `/api/health` returns `"unconfigured"` until env vars exist. Revisit the 500 MB
-  free-tier watch item (end of Phase 2) if the free-org route is taken.
+- **2026-07-05 — Supabase project created (Shane approved $10/mo).** The "Shane Dev" Supabase org is
+  on a paid plan, so this project bills **$10/mo** compute (research assumed free tier — this is the
+  "first real cost" arriving earlier than the Phase 2/6 estimate). Project `wow-tmog-planner`, ref
+  `rdeqclturctltruibmbl`, us-east-1, Postgres 17. Paid-plan upside: the 500 MB free-tier DB watch item
+  is moot (8 GB included). App env uses the modern publishable key in the anon-key slot.
 - **2026-07-05 — Stack locked** per research: Next.js App Router + TS + Tailwind + shadcn/ui on Vercel
   Hobby; Supabase (Postgres/pgvector/Auth); GitHub Actions for ingest; Claude API for AI. pnpm as package
   manager.

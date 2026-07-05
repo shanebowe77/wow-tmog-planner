@@ -10,8 +10,7 @@ brief you were asked to implement in [docs/phases/](docs/phases/). Data work als
 
 ## Phase tracker
 
-- [x] Phase 0 — Scaffold & walking skeleton (`docs/phases/phase-0-scaffold.md`) — done 2026-07-05;
-      Supabase project creation pending Shane (see Decision log)
+- [x] Phase 0 — Scaffold & walking skeleton (`docs/phases/phase-0-scaffold.md`) — done 2026-07-05
 - [ ] Phase 1 — 3D viewer spike, DECISION GATE (`docs/phases/phase-1-viewer-spike.md`)
 - [ ] Phase 2 — Ingestion pipeline (`docs/phases/phase-2-ingestion.md`)
 - [ ] Phase 3 — Catalog browser (`docs/phases/phase-3-catalog.md`)
@@ -71,5 +70,6 @@ browser verification — use them.
 - Deploys: push to `main` → Vercel auto-deploys production. Manual: `vercel deploy --prod`.
 
 Infra: GitHub `shanebowe77/wow-tmog-planner` (public) · Vercel project `wow-tmog-planner`
-(personal account, prod at https://wow-tmog-planner-eight.vercel.app) · Supabase project: not yet
-created. Env vars documented in `.env.example` (local: `.env.local`, deploys: Vercel dashboard).
+(personal account, prod at https://wow-tmog-planner-eight.vercel.app) · Supabase project
+`wow-tmog-planner`, ref `rdeqclturctltruibmbl` (us-east-1, paid org — $10/mo). Env vars documented
+in `.env.example` (local: `.env.local`, deploys: Vercel env).
